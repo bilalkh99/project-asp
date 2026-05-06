@@ -8,7 +8,7 @@ namespace project
 {
     public partial class academyform : System.Web.UI.Page
     {
-
+        //hi
             protected void Page_Load(object sender, EventArgs e)
             {
             }
