@@ -1,83 +1,113 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Net.NetworkInformation;
+using System.Text.RegularExpressions;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
+using System.Text.RegularExpressions;
+
 
 namespace project
 {
     public partial class academyform : System.Web.UI.Page
     {
-        //hi
-            protected void Page_Load(object sender, EventArgs e)
+          
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            // 1. Get values from TextBoxes
+            string firstName = txtName.Text.Trim();
+            string lastName = txtLastName.Text.Trim();
+            string location = txtLocation.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string phone = txtPhone.Text.Trim();
+
+            // 2. Validate required fields
+            if (string.IsNullOrEmpty(firstName) ||
+                string.IsNullOrEmpty(email) ||string.IsNullOrEmpty(location)
+                || string.IsNullOrEmpty(lastName)|| string.IsNullOrEmpty(phone))
+
             {
+
+                lblMsg.Text = "⚠️ Please fill in all required fields.";
+                lblMsg.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+            //validate email
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+            if (!Regex.IsMatch(email, pattern))
+            {
+                lblMsg.Text = "Invalid email format";
+                lblMsg.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+            //validate phonenumber
+            string pattern2 = @"^\+\d{1,3}\d{3,13}$";
+            if (!Regex.IsMatch(phone, pattern2)) {
+                lblMsg.Text = "Invalid Phone Number format ( must contains country code followed by your  phone number) ";
+                lblMsg.ForeColor = System.Drawing.Color.Red;
+                return;
             }
 
-            protected void btnRegister_Click(object sender, EventArgs e)
+
+
+
+            // 4. Connection String
+            string connStr =
+                ConfigurationManager.ConnectionStrings["MyDB"].ConnectionString;
+
+            // 5. Open Connection
+            using (SqlConnection conn = new SqlConnection(connStr))
             {
-                string firstName = txtName.Text.Trim();
-                string lastName = txtLastName.Text.Trim();
-                string location = txtLocation.Text.Trim();
-                string email = txtEmail.Text.Trim();
-                string phone = txtPhone.Text.Trim();
-
-                if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(email))
+                try
                 {
-                    lblMsg.Text = "⚠️ Please fill in all required fields.";
-                    lblMsg.ForeColor = System.Drawing.Color.Red;
-                    return;
+                    conn.Open();
+
+                    
+
+                    // 7. INSERT Query
+                    string insertQuery =
+                        "INSERT INTO academy_form " +
+                        "( firstname, lastname, email, location, phone_number) " +
+                        "VALUES ( @fn, @ln, @em, @loc, @ph)";
+
+                    // 8. Create Command
+                    using (SqlCommand cmdInsert =
+                           new SqlCommand(insertQuery, conn))
+                    {
+                        // 9. Parameters
+                        cmdInsert.Parameters.AddWithValue("@fn", firstName);
+                        cmdInsert.Parameters.AddWithValue("@ln", lastName);
+                        cmdInsert.Parameters.AddWithValue("@em", email);
+                        cmdInsert.Parameters.AddWithValue("@loc", location);
+                        cmdInsert.Parameters.AddWithValue("@ph", phone);
+
+                        // 10. Execute INSERT
+                        cmdInsert.ExecuteNonQuery();
+                    }
+
+                    // 11. Success Message
+                    lblMsg.Text =
+                        "✅ Registration Successful!";
+
+                    lblMsg.ForeColor = System.Drawing.Color.Green;
+
+                    // 12. Clear TextBoxes
+                    txtName.Text = "";
+                    txtLastName.Text = "";
+                    txtLocation.Text = "";
+                    txtEmail.Text = "";
+                    txtPhone.Text = "";
                 }
-
-                string connStr = ConfigurationManager.ConnectionStrings["MyDB"].ConnectionString;
-
-                using (SqlConnection conn = new SqlConnection(connStr))
+                catch (Exception ex)
                 {
-                    try
-                    {
-                        conn.Open();
-
-                        int newId = 1;
-
-                        string getMaxIdQuery = "SELECT ISNULL(MAX(id), 0) FROM academy_form";
-                        using (SqlCommand cmdMax = new SqlCommand(getMaxIdQuery, conn))
-                        {
-                            object result = cmdMax.ExecuteScalar();
-                            if (result != null && result != DBNull.Value)
-                            {
-                                newId = Convert.ToInt32(result) + 1;
-                            }
-                        }
-
-                        string insertQuery = "INSERT INTO academy_form (id, firstname, lastname, email, location, phone_number) " +
-                                             "VALUES (@id, @fn, @ln, @em, @loc, @ph)";
-
-                        using (SqlCommand cmdInsert = new SqlCommand(insertQuery, conn))
-                        {
-                            cmdInsert.Parameters.AddWithValue("@id", newId);
-                            cmdInsert.Parameters.AddWithValue("@fn", firstName);
-                            cmdInsert.Parameters.AddWithValue("@ln", lastName);
-                            cmdInsert.Parameters.AddWithValue("@em", email);
-                            cmdInsert.Parameters.AddWithValue("@loc", location);
-                            cmdInsert.Parameters.AddWithValue("@ph", phone);
-
-                            cmdInsert.ExecuteNonQuery();
-                        }
-
-                        lblMsg.Text = "✅ Registration Successful! Your ID is: " + newId;
-                        lblMsg.ForeColor = System.Drawing.Color.Green;
-
-                        txtName.Text = "";
-                        txtLastName.Text = "";
-                        txtLocation.Text = "";
-                        txtEmail.Text = "";
-                        txtPhone.Text = "";
-                    }
-                    catch (Exception ex)
-                    {
-                        lblMsg.Text = "❌ Error: " + ex.Message;
-                        lblMsg.ForeColor = System.Drawing.Color.Red;
-                    }
+                    // Error Message
+                    lblMsg.Text = "❌ Error: " + ex.Message;
+                    lblMsg.ForeColor = System.Drawing.Color.Red;
                 }
             }
         }
+    }
     }
