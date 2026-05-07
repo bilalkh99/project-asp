@@ -107,6 +107,9 @@ namespace project
                     lblMsg.Text = "❌ Error: " + ex.Message;
                     lblMsg.ForeColor = System.Drawing.Color.Red;
                 }
+                Session["firstName"] = firstName;
+                Session["lastName"] = lastName;
+                Response.Redirect("Welcome.aspx");
             }
         }
     }
