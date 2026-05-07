@@ -11,6 +11,7 @@ namespace project
         {
             if (!IsPostBack)
             {
+                Response.Write(Session["field"].ToString());
                 LoadCourses();
 
                 string fname = Session["firstName"] != null ? Session["firstName"].ToString() : "";
@@ -24,13 +25,22 @@ namespace project
         {
             string connStr = ConfigurationManager.ConnectionStrings["MyDB"].ConnectionString;
 
+            if (Session["field"] == null)
+            {
+                Response.Redirect("WebForm3.aspx");
+                return;
+            }
+
+            string field = Session["field"].ToString();
+
             using (SqlConnection conn = new SqlConnection(connStr))
             {
-                string query = "SELECT course_id, course_name, price FROM Courses";
+                string query = "SELECT course_id, course_name, price FROM Courses WHERE field = @field";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
+                da.SelectCommand.Parameters.AddWithValue("@field", field);
 
+                DataTable dt = new DataTable();
                 da.Fill(dt);
 
                 gvCourses.DataSource = dt;

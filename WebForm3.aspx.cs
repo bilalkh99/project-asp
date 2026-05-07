@@ -22,19 +22,23 @@ namespace project
             switch (field)
             {
                 case "CE":
+                    Session["field"] = "CE";
                     Response.Redirect("CE.aspx");
                     break;
 
                 case "EE":
+                    Session["field"] = "EE";
                     Response.Redirect("EE.aspx");
                     break;
 
 
                 case "Civil":
+                    Session["field"] = "civil";
                     Response.Redirect("civil.aspx");
                     break;
 
                 case "Telecom":
+                    Session["field"] = "Telecom";
                     Response.Redirect("telecom.aspx");
                     break;
 

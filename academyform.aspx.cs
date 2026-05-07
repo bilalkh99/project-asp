@@ -109,6 +109,7 @@ namespace project
                 }
                 Session["firstName"] = firstName;
                 Session["lastName"] = lastName;
+                Session["field"] = Session["field"];
                 Response.Redirect("Welcome.aspx");
             }
         }
