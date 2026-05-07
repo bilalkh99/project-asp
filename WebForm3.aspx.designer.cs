@@ -33,13 +33,13 @@ namespace project
         protected global::System.Web.UI.WebControls.DropDownList ddlcs;
 
         /// <summary>
-        /// btnDev control.
+        /// btncs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDev;
+        protected global::System.Web.UI.WebControls.Button btncs;
 
         /// <summary>
         /// ddlEng control.
@@ -58,24 +58,6 @@ namespace project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEng;
-
-        /// <summary>
-        /// ddlDoctor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDoctor;
-
-        /// <summary>
-        /// btnDoc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDoc;
 
         /// <summary>
         /// ddlFree control.

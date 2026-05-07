@@ -29,18 +29,22 @@ namespace project
             if (q19.SelectedValue == "A") score++;
             if (q20.SelectedValue == "A") score++;
 
-            if (score <= 7)
-                lblResult.Text = "🔴 Level 0 - Needs Basics Training (50$)";
-            else if (score <= 13)
-                lblResult.Text = "🟡 Level 1 - Basic Course (30$)";
-            else if (score <= 17)
-                lblResult.Text = "🟢 Level 2 - Professional (20$)";
-            else
-                lblResult.Text = "🔵 Level 3 - Advanced Engineer (10$)";
+            string result;
 
-            // ✔️ SHOW BUTTON HERE (correct place)
+            if (score <= 7)
+                result = "🔴 Level 0 - Needs Basics Courses)";
+            else if (score <= 13)
+                result = "🟡 Level 1 -needs Basics Coures";
+            else if (score <= 17)
+                result = "🟢 Level 2 - Professional  ";
+            else
+                result = "🔵 Level 3 - you can join in advanced courses";
+
+            lblResult.Text = result;
+
             btnRegisterNow.Visible = true;
         }
+
         protected void regnow(object sender, EventArgs e)
         {
             Response.Redirect("academyform.aspx");

@@ -86,11 +86,20 @@
 
 <form id="form1" runat="server">
 
-<div class="container">
+<<div class="container">
 
 <h1>💻 Computer Engineering Test</h1>
 
----
+<asp:Label ID="lblResult" runat="server" CssClass="result" />
+
+<!-- BUTTON REGISTER -->
+<asp:Button ID="btnRegisterNow" runat="server"
+    Text="Register with us now"
+    CssClass="btn"
+    OnClick="regnow"
+    Visible="false" />
+
+
 
 <!-- Q1 -->
 <div class="card">
@@ -276,18 +285,11 @@
 
 <asp:Button ID="btnSubmit" runat="server" Text="Submit Test" CssClass="btn" OnClick="btnSubmit_Click" />
 
-<asp:Label ID="lblResult" runat="server" CssClass="result" />
 
-</div>
-    <asp:Label ID="Label1" runat="server" CssClass="result" />
 
 <br />
 
-<asp:Button ID="btnRegisterNow" runat="server"
-    Text="Register with us now "
-    OnClick="regnow"
-    CssClass="btn"
-    Visible="false" />
+
 
 </form>
 

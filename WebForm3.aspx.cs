@@ -29,9 +29,6 @@ namespace project
                     Response.Redirect("EE.aspx");
                     break;
 
-                case "ME":
-                    Response.Redirect("ME.aspx");
-                    break;
 
                 case "Civil":
                     Response.Redirect("civil.aspx");
@@ -41,19 +38,12 @@ namespace project
                     Response.Redirect("telecom.aspx");
                     break;
 
-                case "IE":
-                    Response.Redirect("IE.aspx");
-                    break;
-
                 default:
                     Response.Write("Please select a valid field");
                     break;
             }
         }
-        protected void btnDoc_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Questions.aspx");
-        }
+       
 
         protected void btnFree_Click(object sender, EventArgs e)
         {
