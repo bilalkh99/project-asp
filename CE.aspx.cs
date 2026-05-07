@@ -47,7 +47,6 @@ namespace project
 
         protected void regnow(object sender, EventArgs e)
         {
-            Session["field"] = "CE";
             Response.Redirect("academyform.aspx");
         }
     }

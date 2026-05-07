@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true"
-    CodeBehind="WebForm3.aspx.cs"
+    CodeBehind="home.aspx.cs"
     Inherits="project.WebForm3" %>
 
 <!DOCTYPE html>

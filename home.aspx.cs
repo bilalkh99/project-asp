@@ -9,12 +9,14 @@ namespace project
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
+        //CS
         protected void btncs_Click(object sender, EventArgs e)
         {
             
             Response.Redirect("dQuestions.aspx");
         }
 
+        // eng
         protected void btnEng_Click(object sender, EventArgs e)
         {
             string field = ddlEng.SelectedValue;
@@ -48,7 +50,7 @@ namespace project
             }
         }
        
-
+        //FREE
         protected void btnFree_Click(object sender, EventArgs e)
         {
             Response.Redirect("Questions.aspx");

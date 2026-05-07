@@ -51,6 +51,7 @@ namespace project
         protected void gvCourses_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
         {
             if (e.CommandName == "pay")
+
             {
                 lblMsg.Text = "💳 Send payment to +96170545120 (WishMoney). After confirmation, course content will be sent to your email.";
             }
