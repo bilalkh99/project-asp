@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 
 namespace project
 {
+    //hi
     public partial class welcome : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -27,7 +28,7 @@ namespace project
 
             if (Session["field"] == null)
             {
-                Response.Redirect("WebForm3.aspx");
+                Response.Redirect("home.aspx");
                 return;
             }
 
