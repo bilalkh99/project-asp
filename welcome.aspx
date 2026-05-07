@@ -101,6 +101,7 @@
             <asp:GridView ID="gvCourses" runat="server"
                 AutoGenerateColumns="False"
                 CssClass="grid"
+                DataKeyNames="course_id"
                 OnRowCommand="gvCourses_RowCommand">
 
                 <Columns>
@@ -114,7 +115,7 @@
                             <asp:Button ID="btnPay" runat="server"
                                 Text="Pay"
                                 CommandName="pay"
-                                CommandArgument='<%# Eval("course_id") %>'
+                                CommandArgument='<%# Container.DataItemIndex %>'
                                 CssClass="btn" />
 
                         </ItemTemplate>

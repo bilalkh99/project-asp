@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 
 namespace project
 {
@@ -49,12 +50,36 @@ namespace project
             }
         }
 
-        protected void gvCourses_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
+        protected void gvCourses_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "pay")
-
             {
-                lblMsg.Text = "💳 Send payment to +96170545120 (WishMoney). After confirmation, course content will be sent to your email.";
+                int index = Convert.ToInt32(e.CommandArgument);
+
+                int courseId = Convert.ToInt32(gvCourses.DataKeys[index].Value);
+
+                string email = Session["email"].ToString();
+
+                SaveEnrollment(courseId);
+                lblMsg.Text = "💳 Payment instructions: Please send the required amount via Wish Money to +961 79 545 120. Once confirmed, the course content will be sent to your email." + email;
+            }
+        }
+        void SaveEnrollment(int courseId)
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["MyDB"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+
+                string query = "INSERT INTO Enrollments (student_id, course_id) VALUES (@sid, @cid)";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@sid", Session["student_id"]);
+                cmd.Parameters.AddWithValue("@cid", courseId);
+
+                cmd.ExecuteNonQuery();
             }
         }
     }
