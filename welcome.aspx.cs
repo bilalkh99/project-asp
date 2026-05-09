@@ -61,7 +61,7 @@ namespace project
                 string email = Session["email"].ToString();
 
                 SaveEnrollment(courseId);
-                lblMsg.Text = "💳 Payment instructions: Please send the required amount via Wish Money to +961 79 545 120. Once confirmed, the course content will be sent to your email." + email;
+                lblMsg.Text = "💳 Payment instructions: Please send the required amount via Whish Money to +961 79 545 120. Once confirmed, the course content will be sent to your email." + email;
             }
         }
         void SaveEnrollment(int courseId)

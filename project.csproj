@@ -154,6 +154,7 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="teacher.aspx" />
     <Content Include="Telecom.aspx" />
     <Content Include="home.aspx" />
     <Content Include="welcome.aspx" />
@@ -266,6 +267,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="teacher.aspx.cs">
+      <DependentUpon>teacher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="teacher.aspx.designer.cs">
+      <DependentUpon>teacher.aspx</DependentUpon>
     </Compile>
     <Compile Include="Telecom.aspx.cs">
       <DependentUpon>Telecom.aspx</DependentUpon>

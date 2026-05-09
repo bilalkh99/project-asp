@@ -10,65 +10,107 @@
 <style>
 body {
     margin: 0;
-    font-family: 'Segoe UI';
-    background: #0f172a;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #111827);
     color: white;
 }
 
+/* العنوان */
 h1 {
     text-align: center;
     margin-top: 30px;
+    font-size: 32px;
+    letter-spacing: 1px;
 }
 
+/* container */
 .container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 40px;
+    gap: 25px;
+    margin-top: 50px;
 }
 
+/* card */
 .card {
-    width: 220px;
-    background: #111827;
-    border-radius: 15px;
-    padding: 20px;
+    width: 240px;
+    background: rgba(17, 24, 39, 0.9);
+    border-radius: 18px;
+    padding: 25px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: 0.3s;
+    backdrop-filter: blur(6px);
 }
 
-/* 🔥 round images */
+.card:hover {
+    transform: translateY(-8px);
+}
+
+/* image */
 .card img {
-    width: 90px;
-    height: 90px;
+    width: 95px;
+    height: 95px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid #3b82f6;
     margin-bottom: 10px;
 }
 
+/* normal button */
 .btn {
     width: 100%;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 12px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     background: #3b82f6;
     color: white;
     cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .btn:hover {
     background: #2563eb;
+    transform: scale(1.03);
 }
 
+/* dropdown */
 .input {
-    width: 150px;
-    padding: 12px;
+    width: 100%;
+    padding: 10px;
     border-radius: 10px;
-    border: 1px solid #2d3748;
+    border: 1px solid #374151;
     background: #1f2937;
     color: white;
+    margin-top: 10px;
+}
+
+/* 🔥 special teacher button */
+.teacher-btn {
+    display: block;
+    margin: 60px auto 30px auto;
+    padding: 14px 25px;
+    width: 60%;
+    max-width: 500px;
+
+    background: linear-gradient(90deg, #f59e0b, #ef4444);
+    border: none;
+    border-radius: 14px;
+
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.teacher-btn:hover {
+    transform: scale(1.05);
 }
 </style>
 
@@ -140,7 +182,11 @@ h1 {
     </div>
 
 </div>
-
+    
+        <asp:Button ID="btntech" runat="server"
+            Text="If you are a teacher and would like to join our team, click here"
+            CssClass="teacher-btn"
+            OnClick="btntech_Click" />
 </form>
 
 </body>

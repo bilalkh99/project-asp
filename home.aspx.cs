@@ -49,7 +49,11 @@ namespace project
                     break;
             }
         }
-       
+        protected void btntech_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("teacher.aspx");
+        }
+
         //FREE
         protected void btnFree_Click(object sender, EventArgs e)
         {
