@@ -173,6 +173,7 @@ h1 {
             <asp:ListItem Text="Graphic Design" Value="Design" />
             <asp:ListItem Text="Video Editing" Value="Video" />
             <asp:ListItem Text="Digital Marketing" Value="Marketing" />
+           <asp:ListItem Text="Content Creator" Value="Content" />
         </asp:DropDownList>
 
         <asp:Button ID="btnFree" runat="server"

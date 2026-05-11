@@ -57,7 +57,32 @@ namespace project
         //FREE
         protected void btnFree_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Questions.aspx");
+            string field = ddlFree.SelectedValue;
+
+            switch (field)
+            {
+                case "Design":
+                    Session["field"] = "Design";
+                    Response.Redirect("Design.aspx");
+                    break;
+
+                case "Video":
+                    Session["field"] = "Video";
+                    Response.Redirect("Videoeditor.aspx");
+                    break;
+
+                case "Marketing":
+                    Session["field"] = "Marketing";
+                    Response.Redirect("Marketing.aspx");
+                    break;
+                case "Content":
+                    Session["field"] = "Content";
+                    Response.Redirect("contentcreator.aspx");
+                    break;
+                default:
+                    Response.Write("Please select a valid field");
+                    break;
+            }
         }
         protected void Page_Load(object sender, EventArgs e)
         {
