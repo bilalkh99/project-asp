@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.UI.WebControls;
 
 namespace project
 {
@@ -8,37 +9,53 @@ namespace project
         {
             int score = 0;
 
-            if (q1.SelectedValue == "A") score++;
-            if (q2.SelectedValue == "A") score++;
-            if (q3.SelectedValue == "A") score++;
-            if (q4.SelectedValue == "A") score++;
-            if (q5.SelectedValue == "A") score++;
-            if (q6.SelectedValue == "A") score++;
-            if (q7.SelectedValue == "A") score++;
-            if (q8.SelectedValue == "A") score++;
-            if (q9.SelectedValue == "A") score++;
-            if (q10.SelectedValue == "A") score++;
-            if (q11.SelectedValue == "A") score++;
-            if (q12.SelectedValue == "A") score++;
-            if (q13.SelectedValue == "A") score++;
-            if (q14.SelectedValue == "A") score++;
-            if (q15.SelectedValue == "A") score++;
-            if (q16.SelectedValue == "A") score++;
-            if (q17.SelectedValue == "A") score++;
-            if (q18.SelectedValue == "A") score++;
-            if (q19.SelectedValue == "A") score++;
-            if (q20.SelectedValue == "A") score++;
+            // 1. تجميع الـ 20 سؤالاً في مصفوفة واحدة لاختصار الكود
+            RadioButtonList[] questions = {
+                q1, q2, q3, q4, q5, q6, q7, q8, q9, q10,
+                q11, q12, q13, q14, q15, q16, q17, q18, q19, q20
+            };
+
+            // 2. حساب النتيجة باستخدام Loop (بدلاً من 20 سطر If)
+            foreach (var q in questions)
+            {
+                if (q.SelectedValue == "A")
+                {
+                    score++;
+                }
+            }
+
+            // 3. تحديد المستوى واللون بناءً على نتيجتك
+            string result;
+            System.Drawing.Color resultColor;
 
             if (score <= 7)
-                lblResult.Text = "🔴 Level 0 - Beginner (Needs Basics)";
+            {
+                result = "🔴 Level 0 - Needs Basics Courses";
+                resultColor = System.Drawing.Color.Red;
+            }
             else if (score <= 13)
-                lblResult.Text = "🟡 Level 1 - Basic Level";
+            {
+                result = "🟡 Level 1 - Needs Basics Courses";
+                resultColor = System.Drawing.Color.Yellow;
+            }
             else if (score <= 17)
-                lblResult.Text = "🟢 Level 2 - Good Level";
+            {
+                result = "🟢 Level 2 - Professional";
+                resultColor = System.Drawing.Color.LightGreen;
+            }
             else
-                lblResult.Text = "🔵 Level 3 - Expert 🚀";
+            {
+                result = "🔵 Level 3 - You can join in advanced courses";
+                resultColor = System.Drawing.Color.Cyan;
+            }
+
+            // 4. عرض النتيجة النهائية وتنسيق الأزرار
+            lblResult.Visible = true;
+            lblResult.Text = "Score: " + score + "/20 <br />" + result;
+            lblResult.ForeColor = resultColor;
 
             btnRegisterNow.Visible = true;
+            btnSubmit.Visible = false; // إخفاء زر الإرسال لعدم التكرار
         }
 
         protected void regnow(object sender, EventArgs e)

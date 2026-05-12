@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.UI.WebControls;
 
 namespace project
 {
@@ -8,27 +9,48 @@ namespace project
         {
             int score = 0;
 
-            if (q1.SelectedValue == "A") score++;
-            if (q2.SelectedValue == "A") score++;
-            if (q3.SelectedValue == "A") score++;
-            if (q4.SelectedValue == "A") score++;
-            if (q5.SelectedValue == "A") score++;
-            if (q6.SelectedValue == "A") score++;
-            if (q7.SelectedValue == "A") score++;
-            if (q8.SelectedValue == "A") score++;
-            if (q9.SelectedValue == "A") score++;
-            if (q10.SelectedValue == "A") score++;
+            RadioButtonList[] questions = {
+                q1, q2, q3, q4, q5, q6, q7, q8, q9, q10
+            };
 
-            if (score <= 3)
-                lblResult.Text = "🔴 Level 0 - Beginner (Needs Basics)";
-            else if (score <= 6)
-                lblResult.Text = "🟡 Level 1 - Basic Video Editor";
-            else if (score <= 8)
-                lblResult.Text = "🟢 Level 2 - Good Level";
+            foreach (var q in questions)
+            {
+                if (q.SelectedValue == "A")
+                {
+                    score++;
+                }
+            }
+
+            string result;
+            System.Drawing.Color resultColor;
+
+            if (score <= 7)
+            {
+                result = "🔴 Level 0 - Needs Basics Courses";
+                resultColor = System.Drawing.Color.Red;
+            }
+            else if (score <= 13)
+            {
+                result = "🟡 Level 1 - Needs Basics Courses";
+                resultColor = System.Drawing.Color.Yellow;
+            }
+            else if (score <= 17)
+            {
+                result = "🟢 Level 2 - Professional";
+                resultColor = System.Drawing.Color.LightGreen;
+            }
             else
-                lblResult.Text = "🔵 Level 3 - Advanced Video Editor 🚀";
+            {
+                result = "🔵 Level 3 - You can join in advanced courses";
+                resultColor = System.Drawing.Color.Cyan;
+            }
+
+            lblResult.Visible = true;
+            lblResult.Text = "Score: " + score + "/10 <br />" + result;
+            lblResult.ForeColor = resultColor;
 
             btnRegisterNow.Visible = true;
+            btnSubmit.Visible = false;
         }
 
         protected void regnow(object sender, EventArgs e)
