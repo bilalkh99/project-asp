@@ -131,11 +131,9 @@ h1 {
 
         <asp:DropDownList ID="ddlcs" runat="server" CssClass="input">
             <asp:ListItem Text="-- Choose Field --" Value="" />
-            <asp:ListItem Text="Software Development" Value="Developer" />
             <asp:ListItem Text="Cyber Security" Value="Cyber" />
             <asp:ListItem Text="AI / Machine Learning" Value="AI" />
             <asp:ListItem Text="Web Development" Value="Web" />
-            <asp:ListItem Text="Mobile Development" Value="Mobile" />
         </asp:DropDownList>
 
         <asp:Button ID="btncs" runat="server"
@@ -147,7 +145,7 @@ h1 {
     <!-- 💡 Computer Engineering -->
     <div class="card">
         <img src="image/engineer.jpg" />
-        <h3>C Engineering</h3>
+        <h3> Engineering</h3>
 
         <asp:DropDownList ID="ddlEng" runat="server" CssClass="input">
             <asp:ListItem Text="-- Choose Field --" Value="" />

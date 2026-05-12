@@ -12,8 +12,29 @@ namespace project
         //CS
         protected void btncs_Click(object sender, EventArgs e)
         {
-            
-            Response.Redirect("dQuestions.aspx");
+            string field = ddlcs.SelectedValue;
+
+            switch (field)
+            {
+                case "Cyber":
+                    Session["field"] = "CyberSecurity";
+                    Response.Redirect("cybersec.aspx");
+                    break;
+
+                case "AI":
+                    Session["field"] = "AI";
+                    Response.Redirect("AI.aspx");
+                    break;
+
+                case "Web":
+                    Session["field"] = "Web";
+                    Response.Redirect("web.aspx");
+                    break;
+
+                default:
+                    Response.Write("<script>alert('Please select a valid CS field');</script>");
+                    break;
+            }
         }
 
         // eng
