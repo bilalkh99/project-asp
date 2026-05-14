@@ -2,28 +2,26 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace project
 {
     public partial class teacher : System.Web.UI.Page
     {
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-            if (txtName.Text == "" ||
-                txtFamily.Text == "" ||
-                txtAge.Text == "" ||
-                txtPhone.Text == "" ||
-                txtEmail.Text == "" ||
-                txtAddress.Text == "" ||
-                txtDegree.Text == "" ||
-                ddlSubject.SelectedValue == "" ||
-                txtExperience.Text == "")
-            {
-                lblResult.Text = "⚠️ Please fill all fields";
-                return;
-            }
+        protected void btnSubmit_Click(object sender, EventArgs e) { 
 
-            int age;
+     TextBox[] allFields = { txtName, txtFamily, txtAge, txtPhone, txtEmail, txtAddress, txtDegree, txtExperience };
+
+    foreach (var field in allFields)
+{
+    if (string.IsNullOrWhiteSpace(field.Text))
+    {
+        lblResult.Text = "⚠️ Please fill all fields";
+        return;
+    }
+}
+
+int age;
             if (!int.TryParse(txtAge.Text, out age))
             {
                 lblResult.Text = "⚠️ Age must be a number";
@@ -85,10 +83,15 @@ namespace project
 
                 cmd.ExecuteNonQuery();
             }
-
-            lblResult.ForeColor = System.Drawing.Color.Green;
-            lblResult.Text = "✅ Registered Successfully!";
-
+            txtName.Text = string.Empty;
+            txtFamily.Text = string.Empty;
+            txtAge.Text = string.Empty;
+            txtPhone.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtAddress.Text = string.Empty;
+            txtDegree.Text = string.Empty;
+            txtExperience.Text = string.Empty;
+            ddlSubject.SelectedIndex = 0;
             lblResult.ForeColor = System.Drawing.Color.Green;
             lblResult.Text = "✅ Application submitted successfully!";
         }

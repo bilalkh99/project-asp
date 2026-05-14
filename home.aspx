@@ -186,6 +186,10 @@ h1 {
             Text="If you are a teacher and would like to join our team, click here"
             CssClass="teacher-btn"
             OnClick="btntech_Click" />
+     <asp:Button ID="login" runat="server"
+     Text="LOGIN ADMIN"
+     CssClass="teacher-btn"
+     OnClick="btnADD_Click" />
 </form>
 
 </body>

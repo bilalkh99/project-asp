@@ -11,7 +11,7 @@ namespace project
 {
 
 
-    public partial class WebForm3
+    public partial class loginadmin
     {
 
         /// <summary>
@@ -24,75 +24,57 @@ namespace project
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// ddlcs control.
+        /// txtAdminUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlcs;
+        protected global::System.Web.UI.WebControls.TextBox txtAdminUser;
 
         /// <summary>
-        /// btncs control.
+        /// rfvUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btncs;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUser;
 
         /// <summary>
-        /// ddlEng control.
+        /// txtAdminPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEng;
+        protected global::System.Web.UI.WebControls.TextBox txtAdminPass;
 
         /// <summary>
-        /// btnEng control.
+        /// rfvPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEng;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPass;
 
         /// <summary>
-        /// ddlFree control.
+        /// btnLoginAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFree;
+        protected global::System.Web.UI.WebControls.Button btnLoginAdmin;
 
         /// <summary>
-        /// btnFree control.
+        /// lblStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFree;
-
-        /// <summary>
-        /// btntech control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btntech;
-
-        /// <summary>
-        /// login control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button login;
+        protected global::System.Web.UI.WebControls.Label lblStatus;
     }
 }

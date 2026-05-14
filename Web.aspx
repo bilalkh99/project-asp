@@ -74,7 +74,7 @@
             <div class="card"><h4>6. Which is a Database?</h4><asp:RadioButtonList ID="q6" runat="server"><asp:ListItem Text="SQL Server" Value="A" /><asp:ListItem Text="Photoshop" Value="B" /></asp:RadioButtonList></div>
             <div class="card"><h4>7. Web server example?</h4><asp:RadioButtonList ID="q7" runat="server"><asp:ListItem Text="IIS or Apache" Value="A" /><asp:ListItem Text="Chrome" Value="B" /></asp:RadioButtonList></div>
             <div class="card"><h4>8. Frontend framework?</h4><asp:RadioButtonList ID="q8" runat="server"><asp:ListItem Text="React" Value="A" /><asp:ListItem Text="Node.js" Value="B" /></asp:RadioButtonList></div>
-            <div class="card"><h4>9. Largest heading tag?</h4><asp:RadioButtonList ID="q9" runat="server"><asp:ListItem Text="&lt;h1&gt;" Value="A" /><asp:ListItem Text="&lt;h6&gt;" Value="B" /></asp:RadioButtonList></div>
+            <div class="card"><h4>9. Largest heading tag?</h4><asp:RadioButtonList ID="q9" runat="server"><asp:ListItem Text="H1" Value="A" /><asp:ListItem Text="H6" Value="B" /></asp:RadioButtonList></div>
             <div class="card"><h4>10. API stands for?</h4><asp:RadioButtonList ID="q10" runat="server"><asp:ListItem Text="Application Programming Interface" Value="A" /><asp:ListItem Text="Apple Process Internal" Value="B" /></asp:RadioButtonList></div>
             <div class="card"><h4>11. Boolean value?</h4><asp:RadioButtonList ID="q11" runat="server"><asp:ListItem Text="True/False" Value="A" /><asp:ListItem Text="1, 2, 3" Value="B" /></asp:RadioButtonList></div>
             <div class="card"><h4>12. Backend language?</h4><asp:RadioButtonList ID="q12" runat="server"><asp:ListItem Text="C# or PHP" Value="A" /><asp:ListItem Text="CSS" Value="B" /></asp:RadioButtonList></div>

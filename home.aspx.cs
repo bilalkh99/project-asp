@@ -105,9 +105,9 @@ namespace project
                     break;
             }
         }
-        protected void Page_Load(object sender, EventArgs e)
+        protected void btnADD_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("adminlogin.aspx");
         }
     }
 }

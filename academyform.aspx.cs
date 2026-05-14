@@ -15,7 +15,6 @@ namespace project
             string email = txtEmail.Text.Trim();
             string phone = txtPhone.Text.Trim();
 
-            // 🔴 validation
             if (string.IsNullOrEmpty(firstName) ||
                 string.IsNullOrEmpty(lastName) ||
                 string.IsNullOrEmpty(location) ||

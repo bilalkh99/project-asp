@@ -88,6 +88,8 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="academyform.aspx" />
+    <Content Include="AdminDashboard.aspx" />
+    <Content Include="adminlogin.aspx" />
     <Content Include="AI.aspx" />
     <Content Include="CE.aspx" />
     <Content Include="Civil.aspx" />
@@ -127,6 +129,20 @@
     </Compile>
     <Compile Include="academyform.aspx.designer.cs">
       <DependentUpon>academyform.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboard.aspx.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminDashboard.aspx.designer.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminlogin.aspx.cs">
+      <DependentUpon>adminlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminlogin.aspx.designer.cs">
+      <DependentUpon>adminlogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="AI.aspx.cs">
       <DependentUpon>AI.aspx</DependentUpon>
